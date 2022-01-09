@@ -84,8 +84,60 @@ void PrintListReverse(SLLI *head)
     printf("%d\n", head->data);
 }
 
-SLLI *DeleteItemFromList(SLLI *head, int toDel);
-SLLI *DeleteItemFromList_Recursive(SLLI *head, int toDel);
+SLLI *DeleteItemFromList(SLLI *head, int toDel)
+{
+    if (NULL != head)
+    {
+        // Remove the head of the list
+        if (toDel == head->data)
+        {
+            SLLI *newHead = head->next;
+            free(head);
+            return newHead;
+        }
+
+        // Remove middle or last item
+        SLLI *prev = NULL;
+        SLLI *curr = head;
+
+        while (NULL != curr && toDel != curr->data)
+        {
+            prev = curr;
+            curr = curr->next;
+        }
+        // After the loop, either list ended or target found
+
+        if (NULL != curr)
+        {
+            // Target found
+            prev->next = curr->next;
+            free(curr);
+        }
+        else
+        {
+            printf("%d not found", toDel);
+        }
+    }
+    return head;
+}
+
+SLLI *DeleteItemFromList_Recursive(SLLI *head, int toDel)
+{
+    if (NULL != head)
+    {
+        if (toDel == head->data)
+        {
+            SLLI *next = head->next;
+            free(head);
+            return next;
+        }
+        else
+        {
+            head->next = DeleteItemFromList_Recursive(head->next, toDel);
+        }
+    }
+    return head;
+}
 
 void DestroyList(SLLI *head)
 {
