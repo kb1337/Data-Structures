@@ -2,5 +2,6 @@
 !/**/
 !*.c
 !*.h
+!*.sh
 !*.md
 !.gitignore
