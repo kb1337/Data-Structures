@@ -17,9 +17,11 @@ void PrintList_Recursive(SLLI *head);
 
 void PrintListReverse(SLLI *head);
 
-void DestroyList(SLLI *head);
-
 SLLI *DeleteItemFromList(SLLI *head, int toDel);
 SLLI *DeleteItemFromList_Recursive(SLLI *head, int toDel);
+
+void DestroyList(SLLI *head);
+
+SLLI *ReverseList(SLLI *head);
 
 #endif

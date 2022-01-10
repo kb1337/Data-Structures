@@ -219,3 +219,27 @@ void DestroyList(SLLI *head)
 
 </p>
 </details>
+
+<details><summary>Reverse List</summary>
+<p>
+
+```c
+SLLI *ReverseList(SLLI *head)
+{
+    SLLI *prev = NULL;
+    SLLI *curr = head;
+    SLLI *next = NULL;
+
+    while (NULL != curr)
+    {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+}
+```
+
+</p>
+</details>

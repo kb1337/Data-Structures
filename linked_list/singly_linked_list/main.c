@@ -47,6 +47,10 @@ int main(void)
     printf("\n--- In order ---\n");
     PrintList(head);
 
+    head = ReverseList(head);
+    printf("\n--- After reversing ---\n");
+    PrintList(head);
+
     DestroyList(head);
     return 0;
 }
