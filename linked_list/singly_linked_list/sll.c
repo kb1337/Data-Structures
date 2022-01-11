@@ -27,11 +27,11 @@ SLLI *AddItemToEnd(SLLI *head, int data)
     newNode->data = data;
     newNode->next = NULL;
 
-    // First item of the list
+    // Add item to empty list
     if (NULL == head)
         return newNode;
 
-    // Find end of the list
+    // Find the last item
     SLLI *tmp = head;
     while (NULL != tmp->next)
         tmp = tmp->next;
@@ -48,11 +48,43 @@ SLLI *AddItemToHead(SLLI *head, int data)
     newNode->data = data;
 
     if (NULL == head)
-        newNode->next = NULL; // First item of the list
+        newNode->next = NULL; // Add item to empty list
     else
         newNode->next = head;
 
     return newNode;
+}
+
+SLLI *AddItemInOrder(SLLI *head, int data)
+{
+    SLLI *newNode = AllocateMemory(sizeof(SLLI), "AddItemInOrder", EXIT_PROGRAM);
+    newNode->data = data;
+
+    if (NULL == head)
+    {
+        newNode->next = NULL; // Add item to empty list
+        return newNode;
+    }
+
+    if (data < head->data)
+    {
+        newNode->next = head; // Add item to head
+        return newNode;
+    }
+
+    // Add item to middle or last
+    SLLI *prev = NULL;
+    SLLI *curr = head;
+    while (NULL != curr && curr->data < data)
+    {
+        prev = curr;
+        curr = curr->next;
+    }
+
+    newNode->next = prev->next;
+    prev->next = newNode;
+
+    return head;
 }
 
 void PrintList(SLLI *head)
@@ -105,7 +137,7 @@ SLLI *DeleteItemFromList(SLLI *head, int toDel)
             prev = curr;
             curr = curr->next;
         }
-        // After the loop, either list ended or target found
+        // After the loop, either list has ended or target has found
 
         if (NULL != curr)
         {
@@ -115,7 +147,7 @@ SLLI *DeleteItemFromList(SLLI *head, int toDel)
         }
         else
         {
-            printf("%d not found", toDel);
+            printf("%d not found\n", toDel);
         }
     }
     return head;

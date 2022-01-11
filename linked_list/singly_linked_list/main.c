@@ -22,7 +22,7 @@ int main(void)
     printf("\n--- In reverse order ---\n");
     PrintListReverse(head);
 
-    for (int i = 11; i > 0; i--)
+    for (int i = 9; i > 0; i--)
     {
         head = AddItemToHead(head, i);
     }
@@ -31,18 +31,26 @@ int main(void)
     PrintList(head);
 
     printf("\n--- Delete head, middle, last item ---\n");
+    printf("--- Delete 1, 15, 19, 25---\n");
     head = DeleteItemFromList(head, 1);  // first item
     head = DeleteItemFromList(head, 15); // middle item
     head = DeleteItemFromList(head, 19); // last item
     head = DeleteItemFromList(head, 25); // not found
-
-    printf("\n--- In order ---\n");
     PrintList(head);
 
+    printf("\n--- Delete recursively 2, 14, 18, 30---\n");
+    printf("--- In order ---\n");
     head = DeleteItemFromList_Recursive(head, 2);  // first item
     head = DeleteItemFromList_Recursive(head, 14); // middle item
     head = DeleteItemFromList_Recursive(head, 18); // last item
     head = DeleteItemFromList_Recursive(head, 30); // not found
+    PrintList(head);
+
+    printf("\n--- Add -15, 15, 30 in order");
+
+    head = AddItemInOrder(head, -15); // first item
+    head = AddItemInOrder(head, 15);  // middle item
+    head = AddItemInOrder(head, 30);  // last item
 
     printf("\n--- In order ---\n");
     PrintList(head);

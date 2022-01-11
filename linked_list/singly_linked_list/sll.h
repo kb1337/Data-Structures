@@ -12,6 +12,8 @@ void *AllocateMemory(int sizeBytes, const char *stdErr, bool bExit);
 SLLI *AddItemToEnd(SLLI *head, int data);
 SLLI *AddItemToHead(SLLI *head, int data);
 
+SLLI *AddItemInOrder(SLLI *head, int data);
+
 void PrintList(SLLI *head);
 void PrintList_Recursive(SLLI *head);
 
