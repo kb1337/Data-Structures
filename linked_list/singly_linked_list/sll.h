@@ -26,4 +26,6 @@ void DestroyList(SLLI *head);
 
 SLLI *ReverseList(SLLI *head);
 
+SLLI *Split(SLLI *head);
+
 #endif

@@ -191,3 +191,22 @@ SLLI *ReverseList(SLLI *head)
     }
     return prev;
 }
+
+SLLI *Split(SLLI *head)
+{
+    // Splits the list and returns the beginning of the second half
+
+    SLLI *prevSlowPointer = head;
+    SLLI *slowPointer = head;
+    SLLI *fastPointer = head;
+
+    // Find the mid point of the list
+    while (NULL != fastPointer && NULL != fastPointer->next)
+    {
+        prevSlowPointer = slowPointer;
+        slowPointer = slowPointer->next;
+        fastPointer = fastPointer->next->next;
+    }
+    prevSlowPointer->next = NULL; // list splitted
+    return slowPointer;           // the beginning of the second half
+}

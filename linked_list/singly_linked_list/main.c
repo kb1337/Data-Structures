@@ -59,6 +59,14 @@ int main(void)
     printf("\n--- After reversing ---\n");
     PrintList(head);
 
+    printf("\n--- List Splitted ---\n");
+    SLLI *half = Split(head);
+    printf("\n--- First Half ---\n");
+    PrintList(head);
+    printf("\n--- Second Half ---\n");
+    PrintList(half);
+
     DestroyList(head);
+    DestroyList(half);
     return 0;
 }
