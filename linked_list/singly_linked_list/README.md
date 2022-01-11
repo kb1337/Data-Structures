@@ -31,7 +31,7 @@ void *AllocateMemory(int sizeBytes, const char *strErr, bool bExit)
 </p>
 </details>
 
-<details><summary>Print a Linked List in order</summary>
+<details><summary>Print in order</summary>
 <p>
 
 Iterative approach
@@ -66,7 +66,7 @@ void PrintList_Recursive(SLLI *head)
 </p>
 </details>
 
-<details><summary>Print a Linked List in reverse order</summary>
+<details><summary>Print in reverse order</summary>
 <p>
 Recursive approach
 
@@ -175,7 +175,7 @@ SLLI *AddItemInOrder(SLLI *head, int data)
 </details>
 
 
-<details><summary>Delete Item</summary>
+<details><summary>Delete item</summary>
 <p>
 Iterative approach
 
@@ -243,7 +243,7 @@ SLLI *DeleteItemFromList_Recursive(SLLI *head, int toDel)
 </p>
 </details>
 
-<details><summary>Destroy List</summary>
+<details><summary>Destroy the list</summary>
 <p>
 Free every item recursively from last to first.
 
@@ -261,7 +261,7 @@ void DestroyList(SLLI *head)
 </p>
 </details>
 
-<details><summary>Reverse List</summary>
+<details><summary>Reverse the list</summary>
 <p>
 
 ```c
