@@ -23,13 +23,13 @@ void *AllocateMemory(int sizeBytes, const char *strErr, bool bExit)
 
 SLLI *AddItemToEnd(SLLI *head, int data)
 {
-    SLLI *newNode = AllocateMemory(sizeof(SLLI), "AddItemToEnd", EXIT_PROGRAM);
-    newNode->data = data;
-    newNode->next = NULL;
+    SLLI *newItem = AllocateMemory(sizeof(SLLI), "AddItemToEnd", EXIT_PROGRAM);
+    newItem->data = data;
+    newItem->next = NULL;
 
     // Add item to empty list
     if (NULL == head)
-        return newNode;
+        return newItem;
 
     // Find the last item
     SLLI *tmp = head;
@@ -37,39 +37,35 @@ SLLI *AddItemToEnd(SLLI *head, int data)
         tmp = tmp->next;
 
     // Last item found
-    tmp->next = newNode;
+    tmp->next = newItem;
 
     return head;
 }
 
 SLLI *AddItemToHead(SLLI *head, int data)
 {
-    SLLI *newNode = AllocateMemory(sizeof(SLLI), "AddItemToHead", EXIT_PROGRAM);
-    newNode->data = data;
+    SLLI *newItem = AllocateMemory(sizeof(SLLI), "AddItemToHead", EXIT_PROGRAM);
+    newItem->data = data;
+    newItem->next = head;
 
-    if (NULL == head)
-        newNode->next = NULL; // Add item to empty list
-    else
-        newNode->next = head;
-
-    return newNode;
+    return newItem;
 }
 
 SLLI *AddItemInOrder(SLLI *head, int data)
 {
-    SLLI *newNode = AllocateMemory(sizeof(SLLI), "AddItemInOrder", EXIT_PROGRAM);
-    newNode->data = data;
+    SLLI *newItem = AllocateMemory(sizeof(SLLI), "AddItemInOrder", EXIT_PROGRAM);
+    newItem->data = data;
 
     if (NULL == head)
     {
-        newNode->next = NULL; // Add item to empty list
-        return newNode;
+        newItem->next = NULL; // Add item to empty list
+        return newItem;
     }
 
     if (data < head->data)
     {
-        newNode->next = head; // Add item to head
-        return newNode;
+        newItem->next = head; // Add item to head
+        return newItem;
     }
 
     // Add item to middle or last
@@ -81,8 +77,8 @@ SLLI *AddItemInOrder(SLLI *head, int data)
         curr = curr->next;
     }
 
-    newNode->next = prev->next;
-    prev->next = newNode;
+    newItem->next = prev->next;
+    prev->next = newItem;
 
     return head;
 }
