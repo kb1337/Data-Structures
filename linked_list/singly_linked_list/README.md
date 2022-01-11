@@ -134,6 +134,47 @@ SLLI *AddItemToHead(SLLI *head, int data)
 </p>
 </details>
 
+<details><summary>Add item in order</summary>
+<p>
+
+```c
+SLLI *AddItemInOrder(SLLI *head, int data)
+{
+    SLLI *newNode = AllocateMemory(sizeof(SLLI), "AddItemInOrder", EXIT_PROGRAM);
+    newNode->data = data;
+
+    if (NULL == head)
+    {
+        newNode->next = NULL; // Add item to empty list
+        return newNode;
+    }
+
+    if (data < head->data)
+    {
+        newNode->next = head; // Add item to head
+        return newNode;
+    }
+
+    // Add item to middle or last
+    SLLI *prev = NULL;
+    SLLI *curr = head;
+    while (NULL != curr && curr->data < data)
+    {
+        prev = curr;
+        curr = curr->next;
+    }
+
+    newNode->next = prev->next;
+    prev->next = newNode;
+
+    return head;
+}
+```
+
+</p>
+</details>
+
+
 <details><summary>Delete Item</summary>
 <p>
 Iterative approach
