@@ -86,6 +86,25 @@ int FindMaxValue(NODE *tree)
     return tree->data;
 }
 
+bool CompareTrees(NODE *a, NODE *b)
+{
+    // Both empty
+    if (NULL == a && NULL == b)
+        return true;
+
+    // Both non-empty
+    if (NULL != a && NULL != b)
+    {
+        return (
+            a->data == b->data &&
+            CompareTrees(a->left, b->left) &&
+            CompareTrees(a->right, b->right));
+    }
+
+    // one empty, one not
+    return false;
+}
+
 void DestroyTree(NODE *tree)
 {
     if (NULL == tree)

@@ -34,11 +34,27 @@ int main(void)
     else
         printf("\n%d not found\n", target);
 
+    NODE *root2 = NULL;
+    root2 = AddNode(root2, 4);
+    root2 = AddNode(root2, 2);
+    root2 = AddNode(root2, 6);
+    root2 = AddNode(root2, 1);
+    root2 = AddNode(root2, 5);
+    root2 = AddNode(root2, 3);
+    root2 = AddNode(root2, 7);
+
+    printf("\n---Compare ---\n");
+    bool result = CompareTrees(root, root2);
+    printf("Are they same: %d\n", result);
+
     printf("\n--- Reversed ---\n");
     ReverseTree(root);
     PrintTree(root);
-
     DestroyTree(root);
+    DestroyTree(root2);
 
+    printf("\n---Compare ---\n");
+    result = CompareTrees(root, root2);
+    printf("Are they same: %d\n", result);
     return 0;
 }

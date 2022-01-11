@@ -24,6 +24,8 @@ void ReverseTree(NODE *tree);
 NODE *FindNode(NODE *tree, int data);
 int FindMaxValue(NODE *tree);
 
+bool CompareTrees(NODE *a, NODE *b);
+
 void DestroyTree(NODE *tree);
 
 #endif

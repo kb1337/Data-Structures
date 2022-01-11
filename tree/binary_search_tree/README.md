@@ -80,6 +80,32 @@ void PrintTree(NODE *root)
 </p>
 </details>
 
+<details><summary>Compare two trees</summary>
+<p>
+
+```c
+bool CompareTrees(NODE *a, NODE *b)
+{
+    // Both empty
+    if (NULL == a && NULL == b)
+        return true;
+
+    // Both non-empty
+    if (NULL != a && NULL != b)
+    {
+        return (
+            a->data == b->data &&
+            CompareTrees(a->left, b->left) &&
+            CompareTrees(a->right, b->right));
+    }
+
+    // one empty, one not
+    return false;
+}
+```
+</p>
+</details>
+
 <details><summary>Reverse the tree</summary>
 <p>
 
