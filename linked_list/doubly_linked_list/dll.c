@@ -45,7 +45,12 @@ DLLI *AddItemToHead(DLLI *head, int data)
 {
     DLLI *newItem = AllocateMemory(sizeof(DLLI), "AddItemToHead", EXIT_PROGRAM);
     newItem->prev = NULL;
+
     newItem->next = head;
+
+    if (NULL != head)
+        head->prev = newItem;
+
     newItem->data = data;
 
     return newItem;
@@ -65,9 +70,37 @@ void PrintList(DLLI *head)
     }
 }
 
-void PrintList_Recursive(DLLI *head);
+void PrintList_Recursive(DLLI *head)
+{
+    if (NULL == head)
+        return;
 
-void PrintListReverse(DLLI *head);
+    printf("%d\n", head->data);
+    PrintList_Recursive(head->next);
+}
+
+void PrintListReverse(DLLI *head)
+{
+    // Find last item
+    while (NULL != head->next)
+        head = head->next;
+
+    // Print from last to first
+    while (NULL != head)
+    {
+        printf("%d\n", head->data);
+        head = head->prev;
+    }
+}
+
+void PrintListReverse_Recursive(DLLI *head)
+{
+    if (NULL == head)
+        return;
+
+    PrintListReverse_Recursive(head->next);
+    printf("%d\n", head->data);
+}
 
 DLLI *DeleteItemFromList(DLLI *head, int toDel);
 DLLI *DeleteItemFromList_Recursive(DLLI *head, int toDel);
@@ -81,4 +114,22 @@ void DestroyList(DLLI *head)
     free(head);
 }
 
-DLLI *ReverseList(DLLI *head);
+DLLI *ReverseList(DLLI *head)
+{
+    DLLI *prev = NULL;
+    DLLI *curr = head;
+    DLLI *next = NULL;
+
+    while (NULL != curr)
+    {
+        next = curr->next;
+
+        curr->next = prev;
+        curr->prev = next;
+
+        prev = curr;
+        curr = next;
+    }
+
+    return prev;
+}

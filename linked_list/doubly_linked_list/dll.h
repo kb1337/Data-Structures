@@ -19,6 +19,7 @@ void PrintList(DLLI *head);
 void PrintList_Recursive(DLLI *head);
 
 void PrintListReverse(DLLI *head);
+void PrintListReverse_Recursive(DLLI *head);
 
 DLLI *DeleteItemFromList(DLLI *head, int toDel);
 DLLI *DeleteItemFromList_Recursive(DLLI *head, int toDel);

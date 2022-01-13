@@ -34,7 +34,7 @@ void *AllocateMemory(int sizeBytes, const char *strErr, bool bExit)
 
 <details><summary>Print in order</summary>
 <p>
-Iterative appoach
+Iterative approach
 
 ```c
 void PrintList(DLLI *head)
@@ -47,6 +47,54 @@ void PrintList(DLLI *head)
         printf("%d\n", head->data);
         head = head->next;
     }
+}
+```
+
+Recursive approach
+
+```c
+void PrintList_Recursive(DLLI *head)
+{
+    if (NULL == head)
+        return;
+
+    printf("%d\n", head->data);
+    PrintList_Recursive(head->next);
+}
+```
+</p>
+</details>
+
+<details><summary>Print in reverse order</summary>
+<p>
+Iterative approach
+
+```c
+void PrintListReverse(DLLI *head)
+{
+    // Find last item
+    while (NULL != head->next)
+        head = head->next;
+
+    // Print from last to first
+    while (NULL != head)
+    {
+        printf("%d\n", head->data);
+        head = head->prev;
+    }
+}
+```
+
+Recursive approach
+
+```c
+void PrintListReverse_Recursive(DLLI *head)
+{
+    if (NULL == head)
+        return;
+
+    PrintListReverse_Recursive(head->next);
+    printf("%d\n", head->data);
 }
 ```
 </p>
@@ -88,7 +136,12 @@ DLLI *AddItemToHead(DLLI *head, int data)
 {
     DLLI *newItem = AllocateMemory(sizeof(DLLI), "AddItemToHead", EXIT_PROGRAM);
     newItem->prev = NULL;
+
     newItem->next = head;
+
+    if (NULL != head)
+        head->prev = newItem;
+
     newItem->data = data;
 
     return newItem;
