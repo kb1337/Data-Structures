@@ -1,7 +1,7 @@
 # Data-Structures
 
 ```bash
-Data-Structures/
+.
 ├── array
 ├── linked_list
 │   ├── doubly_linked_list
