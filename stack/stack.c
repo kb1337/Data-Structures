@@ -32,8 +32,7 @@ STACK *CreateStack(int size)
 
 bool IsFull(STACK *stack)
 {
-    return (stack->sp == stack->size - 1);
-    // return (stack != NULL && (stack->sp == stack->sp));
+    return (stack != NULL && (stack->sp == stack->size - 1));
 }
 
 bool IsEmpty(STACK *stack)

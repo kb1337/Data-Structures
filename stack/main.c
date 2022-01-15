@@ -9,7 +9,7 @@ int main(void)
 {
     STACK *stack = NULL;
     int x;
-    IsEmpty(stack);
+
     stack = CreateStack(STACK_SIZE);
 
     // Peek from empty stack
