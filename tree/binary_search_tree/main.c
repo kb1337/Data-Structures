@@ -35,13 +35,37 @@ int main(void)
         printf("\n%d not found\n", target);
 
     NODE *root2 = NULL;
+
+    printf("\n--- Height NULL---\n");
+    printf("Height: %d\n", GetHeight(root2));
+
     root2 = AddNode(root2, 4);
+    printf("\n--- Height 4 ---\n");
+    printf("Height: %d\n", GetHeight(root2));
+
     root2 = AddNode(root2, 2);
+    printf("\n--- Height 4, 2 ---\n");
+    printf("Height: %d\n", GetHeight(root2));
+
     root2 = AddNode(root2, 6);
+    printf("\n--- Height 4, 2, 6 ---\n");
+    printf("Height: %d\n", GetHeight(root2));
+
     root2 = AddNode(root2, 1);
+    printf("\n--- Height 4, 2, 6, 1 ---\n");
+    printf("Height: %d\n", GetHeight(root2));
+
     root2 = AddNode(root2, 5);
+    printf("\n--- Height 4, 2, 6, 1, 5 ---\n");
+    printf("Height: %d\n", GetHeight(root2));
+
     root2 = AddNode(root2, 3);
+    printf("\n--- Height 4, 2, 6, 1, 5, 3 ---\n");
+    printf("Height: %d\n", GetHeight(root2));
+
     root2 = AddNode(root2, 7);
+    printf("\n--- Height 4, 2, 6, 1, 5, 3, 7 ---\n");
+    printf("Height: %d\n", GetHeight(root2));
 
     printf("\n---Compare ---\n");
     bool result = CompareTrees(root, root2);
