@@ -126,6 +126,27 @@ void ReverseTree(NODE *tree)
 </p>
 </details>
 
+<details><summary>Height of the tree</summary>
+<p>
+
+```c
+int GetHeight(NODE *tree)
+{
+    if (NULL == tree)
+        return -1;
+
+    int left = GetHeight(tree->left);
+    int right = GetHeight(tree->right);
+
+    if (left < right)
+        return right + 1;
+    else
+        return left + 1;
+}
+```
+</p>
+</details>
+
 <details><summary>Find node</summary>
 <p>
 
