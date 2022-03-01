@@ -75,9 +75,9 @@ int GetHeight(NODE *tree)
     int right = GetHeight(tree->right);
 
     if (left < right)
-        return left + 1;
-    else
         return right + 1;
+    else
+        return left + 1;
 }
 
 NODE *FindNode(NODE *tree, int data)
