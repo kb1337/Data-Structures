@@ -21,6 +21,8 @@ void PrintTree(NODE *tree);
 
 void ReverseTree(NODE *tree);
 
+int GetHeight(NODE *tree);
+
 NODE *FindNode(NODE *tree, int data);
 int FindMaxValue(NODE *tree);
 
