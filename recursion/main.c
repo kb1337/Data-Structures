@@ -61,7 +61,7 @@ int main()
 
     printf("\n\n");
 
-    printf("fib(%d) = %d\n", N, fib_seq(N));
+    printf("fib_seq(%d) = %d\n", N, fib_seq(N));
 
     return 0;
 }
